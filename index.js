@@ -29,10 +29,17 @@ function withinRows(j) {
 }
 
 function setup() {
-    createCanvas(750, 600);
+    createCanvas(windowWidth, windowHeight);
     colorMode(HSB, 360, 255, 255);
-    cols = width / w;
-    rows = height / w;
+    cols = floor(width / w);
+    rows = floor(height / w);
+    grid = make2DArray(cols, rows);
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+    cols = floor(width / w);
+    rows = floor(height / w);
     grid = make2DArray(cols, rows);
 }
 
