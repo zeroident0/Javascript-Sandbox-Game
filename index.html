@@ -8,29 +8,67 @@
 
     <style>
         body {
-            background: wheat;
+            background: #111;
             margin: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             width: 100vw;
             overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .controls {
+            position: absolute;
+            top: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background: #333;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        button.active {
+            background: #007bff;
+            box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
         }
 
         canvas {
             display: block;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
         }
     </style>
 </head>
 
 <body>
+    <div class="controls">
+        <button id="sandBtn" class="active" onclick="setType('sand')">Sand</button>
+        <button id="waterBtn" onclick="setType('water')">Water</button>
+        <button id="mudBtn" onclick="setType('mud')">Mud</button>
+        <button id="seedBtn" onclick="setType('seed')">Seed</button>
+    </div>
 
     <!-- P5.JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.11.3/p5.min.js"
         integrity="sha512-I0Pwwz3PPNQkWes+rcSoQqikKFfRmTfGQrcNzZbm8ALaUyJuFdyRinl805shE8xT6iEWsWgvRxdXb3yhQNXKoA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="index.js"></script>
 
 </body>
